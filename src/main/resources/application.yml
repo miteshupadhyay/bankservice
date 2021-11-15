@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: bank-service
+  jpa:
+    show-sql: true
+  banner:
+    location: banner.txt
+  profiles:
+    active: local
+server:
+  port: 8080
+  servlet:
+    context-path: /bank-service
+
+---
+# Local Postgres SQL Database
+spring:
+  profiles:
+  - local
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/DB_501
+    username: scv_user
+    password: admin
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
